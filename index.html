@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--A game isn't a game without a title-->
+		<title>BOMBCORP | 1.2.1</title>
+
+		<!--Get that sikkkkkkkk page icon my dude-->
+		<link rel="icon" href="favicon.ico">
+
+		<!-- We gotta include good ol' jQuery (3.2.1)-->
+		<script src='js/lib/jquery.min.js'></script>
+
+		<!-- Import PIXIJS v4.0.3 (as versions < v4.0.3 just break) -->
+		<!-- AAAAAAAAAAAAAAAAA IT FINALLY WORKS!!!!!!-->
+		<script src='js/pixi/pixi-4-0-3.js'></script>
+
+		<!-- Do this yucky fix so PIXI loads modules-->
+		<script type="text/javascript">
+			window.PIXI = PIXI;
+			window.PIXI[ "default" ] = PIXI;
+		</script>
+
+		<!--Import PIXI modules. -->
+		<script src='js/pixi/pixi-audio.min.js'></script>
+		<script src='js/pixi/pixi-keyboard.min.js'></script>
+		<script src='js/pixi/pixi-timer.min.js'></script>
+
+		<!--Import external functions-->
+		<script src="js/game/ext.js"></script>
+
+		<!-- Import the game stylesheet-->
+		<link rel="stylesheet" type="text/css" href="css/loader.css">
+		<style>
+			/*Make sure the canvas spans the whole page*/
+			canvas{
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				position: fixed;
+			}
+		</style>
+	</head>
+	<body bgcolor="#000000">
+		<script src='js/game/bombcorp.js'></script>
+		<div id='loadmain' class="mainload">
+			<p id='loadtext' class='textload' color='#ffffff'>LOADING BOMBCORP... (0%)</p>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+@font-face {
+    font-family: '8bitwonder';
+    src: url('../fonts/8bitwonder.ttf');
+}
+
+@font-face {
+    font-family: 'widepixel';
+    src: url('../fonts/wide_pixel.ttf');
+}
+
+.textload{
+	color: #ffffff;
+	font-size: 30px;
+	font-family: 'widepixel';
+
+	font-smooth: never;
+	-webkit-font-smoothing : none;
+}
+
+.mainload{
+	position: fixed; 
+	top: 50%; 
+	right: 50%; 
+	transform: translate(50%, -50%);
+	z-index: -1;
+}
+
+.scene{
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background-color: #E53935;
+	z-index: 2;
+}
+
+.dead{
+	background-color: #ffffff !important;
+}
+
+.pixiRender{
+	z-index: 1;
+}
+
+.debug{
+	position: fixed;
+	z-index: 3;
+}

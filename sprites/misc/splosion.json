@@ -1,0 +1,85 @@
+{
+"frames": {
+	"splode_000.png": {
+		"frame": {"x":496, "y":466, "w":80, "h":184},
+		"spriteSourceSize": {"x":60,"y":56,"w":200,"h":240},
+		"sourceSize": {"w":200,"h":240}
+	},
+	"splode_001.png": {
+		"frame": {"x":379, "y":0, "w":116, "h":216},
+		"spriteSourceSize": {"x":44,"y":24,"w":200,"h":240},
+		"sourceSize": {"w":200,"h":240}
+	},
+	"splode_002.png": {
+		"frame": {"x":0, "y":0, "w":128, "h":224},
+		"spriteSourceSize": {"x":40,"y":16,"w":200,"h":240},
+		"sourceSize": {"w":200,"h":240}
+	},
+	"splode_003.png": {
+		"frame": {"x":0, "y":225, "w":128, "h":240},
+		"spriteSourceSize": {"x":40,"y":0,"w":200,"h":240},
+		"sourceSize": {"w":200,"h":240}
+	},
+	"splode_004.png": {
+		"frame": {"x":129, "y":0, "w":128, "h":240},
+		"spriteSourceSize": {"x":40,"y":0,"w":200,"h":240},
+		"sourceSize": {"w":200,"h":240}
+	},
+	"splode_005.png": {
+		"frame": {"x":129, "y":241, "w":124, "h":228},
+		"spriteSourceSize": {"x":40,"y":12,"w":200,"h":240},
+		"sourceSize": {"w":200,"h":240}
+	},
+	"splode_006.png": {
+		"frame": {"x":496, "y":233, "w":116, "h":232},
+		"spriteSourceSize": {"x":44,"y":8,"w":200,"h":240},
+		"sourceSize": {"w":200,"h":240}
+	},
+	"splode_007.png": {
+		"frame": {"x":496, "y":0, "w":120, "h":232},
+		"spriteSourceSize": {"x":44,"y":8,"w":200,"h":240},
+		"sourceSize": {"w":200,"h":240}
+	},
+	"splode_008.png": {
+		"frame": {"x":375, "y":221, "w":120, "h":216},
+		"spriteSourceSize": {"x":44,"y":12,"w":200,"h":240},
+		"sourceSize": {"w":200,"h":240}
+	},
+	"splode_009.png": {
+		"frame": {"x":258, "y":0, "w":120, "h":220},
+		"spriteSourceSize": {"x":48,"y":16,"w":200,"h":240},
+		"sourceSize": {"w":200,"h":240}
+	},
+	"splode_010.png": {
+		"frame": {"x":254, "y":241, "w":120, "h":216},
+		"spriteSourceSize": {"x":48,"y":20,"w":200,"h":240},
+		"sourceSize": {"w":200,"h":240}
+	},
+	"splode_011.png": {
+		"frame": {"x":375, "y":438, "w":120, "h":208},
+		"spriteSourceSize": {"x":48,"y":20,"w":200,"h":240},
+		"sourceSize": {"w":200,"h":240}
+	},
+	"splode_012.png": {
+		"frame": {"x":0, "y":470, "w":108, "h":164},
+		"spriteSourceSize": {"x":52,"y":24,"w":200,"h":240},
+		"sourceSize": {"w":200,"h":240}
+	},
+	"splode_013.png": {
+		"frame": {"x":109, "y":470, "w":108, "h":152},
+		"spriteSourceSize": {"x":52,"y":24,"w":200,"h":240},
+		"sourceSize": {"w":200,"h":240}
+	},
+	"splode_014.png": {
+		"frame": {"x":218, "y":470, "w":104, "h":60},
+		"spriteSourceSize": {"x":56,"y":24,"w":200,"h":240},
+		"sourceSize": {"w":200,"h":240}
+	}
+
+},
+"meta": {
+	"image": "splosion.png",
+	"size": {"w": 617, "h": 651},
+	"scale": "1"
+}
+}
