@@ -23,6 +23,7 @@
 	right: 50%; 
 	transform: translate(50%, -50%);
 	z-index: -1;
+	text-align: center !important;
 }
 
 .scene{
@@ -46,4 +47,21 @@
 .debug{
 	position: fixed;
 	z-index: 3;
+}
+
+#initbtn {
+  border: 0px;
+  background-color: #fcfcfc;
+	cursor:pointer;
+  width: 550px;
+	height: 45px;
+	font-size: 30px;
+	font-family: 'widepixel';
+	z-index: 900;
+	transition: all 250ms cubic-bezier(0, 0, 0, 1.01);
+}
+
+#initbtn:hover {
+	opacity: 0.6;
+	transform: scale(1.1);
 }

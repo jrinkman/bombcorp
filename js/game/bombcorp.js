@@ -33,15 +33,13 @@ $(window).on('resize',function(){
 renderer.view.style.opacity = "0";
 renderer.view.setAttribute("id", "pixiRender");
 renderer.view.className = "pixiRender";
-//settings.SCALE_MODE = 1;
-document.body.appendChild(renderer.view);
 
 //Setup the required global variables.
 const REQUIRED_AUDIO = 
-[	//{name: "audio-background-main", url:"audio/background/game-main.mp3"},
-	//{name: "audio-background-hardcore", url:"audio/background/game-hardcore.mp3"}, **REMOVED FOR GITHUB**
-	//{name: "audio-menu-0", url:"audio/background/menu-0.mp3"},
-	//{name: "audio-menu-1", url:"audio/background/menu-1.mp3"},
+[	{name: "audio-background-main", url:"audio/background/game-main.mp3"},
+	{name: "audio-background-hardcore", url:"audio/background/game-hardcore.mp3"},
+	{name: "audio-menu-0", url:"audio/background/menu-0.mp3"},
+	{name: "audio-menu-1", url:"audio/background/menu-1.mp3"},
 	{name: "audio-btn-hover", url:"audio/sfx/btn_hover.wav"},
 	{name: "audio-sfx-count", url:"audio/sfx/countdown.wav"},
 	{name: "audio-sfx-splode", url:"audio/sfx/explode.wav"}
@@ -111,7 +109,7 @@ function state(newState)
 				//decrease the volume so it doesn't blast the user when they start the game.
 				AUDIO_CURRENT.volume = 0.05;
 				AUDIO_CURRENT.loop = true;
-				//AUDIO_CURRENT.play(); **REMOVED FOR GITHUB**
+				AUDIO_CURRENT.play();
 			}else{
 				//Set intro to false so that the next time the user views the menu screen, they will hear music.
 				INTRO = false;
@@ -677,7 +675,7 @@ function game(config){
 		}, 10);
 
 		//Play the game audio.
-		//AUDIO_CURRENT.play(); **REMOVED FOR GITHUB**
+		AUDIO_CURRENT.play();
 
 		//Create the looping timeout function for creating bombs and assign it to a variable.
 		var newTimeout = 1500;
@@ -1367,7 +1365,7 @@ function switchState(newState, dead){
 	if(dead != null){ AUDIO_ALPHA = 1; }
 
 	//Add the audio to the fade queue
-	//AUDIO_FADE_QUEUE.push({audio: AUDIO_CURRENT, alpha: AUDIO_ALPHA}); **REMOVED FOR GITHUB**
+	AUDIO_FADE_QUEUE.push({audio: AUDIO_CURRENT, alpha: AUDIO_ALPHA});
 
 	//Disable interactions for all of the sprites on the stage.
 	for (var i = app.children.length - 1; i >= 0; i--) { disableInteract(app.children[i]); }
@@ -1420,87 +1418,92 @@ $.getJSON("js/menu.json",{}, function(json) {
 
 //Execute the script when the page loads (shorthand version of $( document ).ready()).
 $(function() {
-	// Load the textures the game needs.
-	loader
-	.add("spr_dev", "sprites/debug/dev.png")
-	.add("spr_ship_0", "sprites/ship/ship_0.png")
-	.add("spr_ship_1", "sprites/ship/ship_1.png")
-	.add("spr_ship_mask", "sprites/ship/ship_mask.png")
-	.add("spr_title_old", "sprites/misc/title_light.png")
-	.add("spr_title", "sprites/misc/title-new_revise.png")
-	.add("spr_btn_play", "sprites/button/button_play.png")
-	.add("spr_btn_classic", "sprites/button/button_classic.png")
-	.add("spr_btn_survival", "sprites/button/button_survival.png")
-	.add("spr_btn_hardcore", "sprites/button/button_hardcore.png")
-	.add("spr_btn_credits", "sprites/button/button_credits.png")
-	.add("spr_count_3", "sprites/misc/countdown_3.png")
-	.add("spr_count_2", "sprites/misc/countdown_2.png")
-	.add("spr_count_1", "sprites/misc/countdown_1.png")
-	.add("spr_count_0", "sprites/misc/countdown_0.png")
-	.add("spr_timer", "sprites/misc/timer.png")
-	.add("spr_splosion", "sprites/misc/splosion.json")
-	.add("spr_bomb_0", "sprites/misc/bomb_0.png")
-	.add("spr_bomb_1", "sprites/misc/bomb_1.png")
-	.add("spr_bomb_2", "sprites/misc/bomb_2.png")
-	.add("spr_dead", "sprites/misc/dead.png")
-	.add("spr_btn_again", "sprites/button/button_again.png")
-	.add("spr_btn_return", "sprites/button/button_return.png")
-	.add("spr_clipboard", "sprites/misc/clipboard.png")
-	.add(REQUIRED_AUDIO)
-	.load(function(loader, resources) 
-	{
-		//Check whether the user has opted to skip to a specific state by passing '?state=<state>' into the URL.
-		//(USED FOR DEBUGGING)
-		var urlParams = getAllUrlParams();
-		if(urlParams.state != null){
-			//Make the renderer visible again.
-			renderer.view.style.opacity = "1";
+	//Listen for the init button to be clicked.
+	$("#initbtn").on('click', (()=>{
+		//Hide the init button and add the renderer.
+		document.body.appendChild(renderer.view);
+		$("#initbtn").fadeOut('fast', ()=>{
+			// Load the textures the game needs.
+			loader
+			.add("spr_dev", "sprites/debug/dev.png")
+			.add("spr_ship_0", "sprites/ship/ship_0.png")
+			.add("spr_ship_1", "sprites/ship/ship_1.png")
+			.add("spr_ship_mask", "sprites/ship/ship_mask.png")
+			.add("spr_title_old", "sprites/misc/title_light.png")
+			.add("spr_title", "sprites/misc/title-new_revise.png")
+			.add("spr_btn_play", "sprites/button/button_play.png")
+			.add("spr_btn_classic", "sprites/button/button_classic.png")
+			.add("spr_btn_survival", "sprites/button/button_survival.png")
+			.add("spr_btn_hardcore", "sprites/button/button_hardcore.png")
+			.add("spr_btn_credits", "sprites/button/button_credits.png")
+			.add("spr_count_3", "sprites/misc/countdown_3.png")
+			.add("spr_count_2", "sprites/misc/countdown_2.png")
+			.add("spr_count_1", "sprites/misc/countdown_1.png")
+			.add("spr_count_0", "sprites/misc/countdown_0.png")
+			.add("spr_timer", "sprites/misc/timer.png")
+			.add("spr_splosion", "sprites/misc/splosion.json")
+			.add("spr_bomb_0", "sprites/misc/bomb_0.png")
+			.add("spr_bomb_1", "sprites/misc/bomb_1.png")
+			.add("spr_bomb_2", "sprites/misc/bomb_2.png")
+			.add("spr_dead", "sprites/misc/dead.png")
+			.add("spr_btn_again", "sprites/button/button_again.png")
+			.add("spr_btn_return", "sprites/button/button_return.png")
+			.add("spr_clipboard", "sprites/misc/clipboard.png")
+			.add(REQUIRED_AUDIO)
+			.load(function(loader, resources) {
+				//Check whether the user has opted to skip to a specific state by passing '?state=<state>' into the URL.
+				//(USED FOR DEBUGGING)
+				var urlParams = getAllUrlParams();
+				if(urlParams.state != null){
+					//Make the renderer visible again.
+					renderer.view.style.opacity = "1";
 
-			//Set 'INTRO' bool to false so music can be played at the menu
-			INTRO = false;
+					//Set 'INTRO' bool to false so music can be played at the menu
+					INTRO = false;
 
-			//Goto the specified state.
-			state(urlParams.state);
-		}
-		else{
-			//Fade out the 'load percentage' text.
-			$('#loadmain').animate( { opacity: 0 }, 'slow', 'swing', function(){
-				//Change the text to the headphone recommendation and and fade in the text.
-				$("#loadtext").html("HEADPHONES & 1080p DISPLAY RECOMMENDED");
-				$('#loadmain').animate( { opacity: 1 }, 'slow', 'swing', function(){
+					//Goto the specified state.
+					state(urlParams.state);
+				}
+				else{
+					//Fade out the 'load percentage' text.
+					$('#loadmain').animate( { opacity: 0 }, 'slow', 'swing', function(){
+						//Change the text to the headphone recommendation and and fade in the text.
+						$("#loadtext").html("HEADPHONES & 1080p DISPLAY RECOMMENDED");
+						$('#loadmain').animate( { opacity: 1 }, 'slow', 'swing', function(){
 
-					//Define the audio outside the menu state function so it can be played before the menu screen.
-					//Get a random background song from the PIXI audio manager and
-					//AUDIO_CURRENT = audio.getAudio('audio-menu-' + Math.floor(Math.random() * 2));
-					//decrease the volume so it doesn't blast the user when they start the game.
-					//AUDIO_CURRENT.loop = true;
-					//AUDIO_CURRENT.volume = 0.05;
-					//AUDIO_CURRENT.play();
-					//**REMOVED FOR GITHUB**
+							//Define the audio outside the menu state function so it can be played before the menu screen.
+							//Get a random background song from the PIXI audio manager and
+							AUDIO_CURRENT = audio.getAudio('audio-menu-' + Math.floor(Math.random() * 2));
+							//decrease the volume so it doesn't blast the user when they start the game.
+							AUDIO_CURRENT.loop = true;
+							AUDIO_CURRENT.volume = 0.05;
+							AUDIO_CURRENT.play();
 
-					//Wait three seconds and then fade in the canvas and remove the 'headphones recommended' text.
-					setTimeout(function(){
-						$('#pixiRender').animate( { opacity: 1 }, 'slow', 'swing', function(){
-							//When the fading animation completes, remove the div element containing the loading text from the page.
-							$("#loadmain").remove();
+							//Wait three seconds and then fade in the canvas and remove the 'headphones recommended' text.
+							setTimeout(function(){
+								$('#pixiRender').animate( { opacity: 1 }, 'slow', 'swing', function(){
+									//When the fading animation completes, remove the div element containing the loading text from the page.
+									$("#loadmain").remove();
 
-							//Set the game state to the menu screen.
-							state("menu");
+									//Set the game state to the menu screen.
+									state("menu");
+								});
+							}, 3000);
 						});
-					}, 3000);
-				});
+					});
+				}
+
+				//Call the 'loop' function to start rendering to the canvas.
+				loop();
+
+			}).on("progress", function(loader)
+			{
+				//Update the loading text element on the page.
+				$("#loadtext").html("LOADING BOMBCORP... (" + Math.floor(loader.progress) + "%).");
+
+				//Also log the loading proccess to the console.
+				console.log("LOADING BOMBCORP (" + Math.floor(loader.progress) + "%)."); 
 			});
-		}
-
-		//Call the 'loop' function to start rendering to the canvas.
-		loop();
-
-	}).on("progress", function(loader)
-	{
-		//Update the loading text element on the page.
-		$("#loadtext").html("LOADING BOMBCORP... (" + Math.floor(loader.progress) + "%).");
-
-		//Also log the loading proccess to the console.
-		console.log("LOADING BOMBCORP (" + Math.floor(loader.progress) + "%)."); 
-	});
+		})	
+	}));
 });
