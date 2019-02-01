@@ -1,7 +1,6 @@
 # bombcorp
-A browser-based minigame written in Javascript using pixi.js
+A browser-based minigame written in Javascript using pixi.js. [Play it here](https://arthur-showcase.firebaseapp.com/bombcorp/).
 
-**WARNING: Certain audio elements of the game have been removed in the current version on GitHub. Please use https://bombcorp-faa7a.firebaseapp.com/ for reference.**
 
 ## Libraries Used
 * **[jQuery](https://github.com/jquery/jquery):** Used for interfacing with DOM elements.

@@ -1499,7 +1499,7 @@ $(function() {
 			}).on("progress", function(loader)
 			{
 				//Update the loading text element on the page.
-				$("#loadtext").html("LOADING BOMBCORP... (" + Math.floor(loader.progress) + "%).");
+				$("#loadtext").html("LOADING BOMBCORP... (" + Math.floor(loader.progress) + "%). THIS CAN TAKE A WHILE ON FIRST LOAD.");
 
 				//Also log the loading proccess to the console.
 				console.log("LOADING BOMBCORP (" + Math.floor(loader.progress) + "%)."); 
