@@ -1,5 +1,5 @@
 # bombcorp
-A browser-based minigame written in Javascript using pixi.js. [Play it here](https://arthur-showcase.firebaseapp.com/bombcorp/).
+A browser-based minigame written in Javascript using pixi.js. [Play it here](https://bombcorp.jrinkman.com).
 
 
 ## Libraries Used
